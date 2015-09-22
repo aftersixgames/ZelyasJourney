@@ -14,6 +14,9 @@ function preload() {
 var player;
 var platforms;
 var cursors;
+var zeJump;
+var zeSpeed;
+var gravidade;
 
 function create() {
 
@@ -22,6 +25,8 @@ function create() {
     this.gameSound = game.add.audio('zesound');
     this.gameSound.play();
     this.gameSound.loopFull(1);
+
+    gravidade = 300;
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
@@ -56,7 +61,7 @@ function create() {
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.body.bounce.y = 0.2;
-    player.body.gravity.y = 300;
+    player.body.gravity.y = gravidade;
     player.body.collideWorldBounds = true;
 
     //  Our two animations, walking left and right.
@@ -64,6 +69,8 @@ function create() {
     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
     cursors = game.input.keyboard.createCursorKeys();
+
+    zeJump = -150;
 
 }
 
@@ -75,17 +82,19 @@ function update() {
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
 
+    zeSpeed = parseInt($('#zespeed').val());
+
     if (cursors.left.isDown)
     {
         //  Move to the left
-        player.body.velocity.x = -150;
+        player.body.velocity.x = -zeSpeed;
 
         player.animations.play('left');
     }
     else if (cursors.right.isDown)
     {
         //  Move to the right
-        player.body.velocity.x = 150;
+        player.body.velocity.x = zeSpeed;
 
         player.animations.play('right');
     }
@@ -96,11 +105,11 @@ function update() {
 
         player.frame = 4;
     }
-
+    zeJump = parseInt($('#zejump').val());
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.body.velocity.y = -350;
+        player.body.velocity.y = -zeJump;
     }
 
 }
