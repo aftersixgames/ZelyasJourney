@@ -5,7 +5,8 @@ function preload() {
 
     game.load.image('ground', 'images/platform.png');
     game.load.image('sky', 'images/sky.png');
-    game.load.spritesheet('ze', 'images/ze_elias.png', 64, 64);
+    // game.load.spritesheet('ze', 'images/ze_elias.png', 64, 64);
+    game.load.spritesheet('ze', 'images/ze.png', 64, 47);
 
 }
 
