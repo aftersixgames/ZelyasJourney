@@ -7,6 +7,7 @@ function preload() {
     game.load.image('sky', 'images/sky.png');
     // game.load.spritesheet('ze', 'images/ze_elias.png', 64, 64);
     game.load.spritesheet('ze', 'images/ze.png', 64, 47);
+    game.load.audio('zesound', 'sounds/zelias_pesadelo.wav');
 
 }
 
@@ -18,6 +19,8 @@ function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
+    this.gameSound = game.add.audio('zesound');
+    this.gameSound.play();
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
