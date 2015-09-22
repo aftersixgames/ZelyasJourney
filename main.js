@@ -5,7 +5,7 @@ function preload() {
 
     game.load.image('ground', 'images/platform.png');
     game.load.image('sky', 'images/sky.png');
-    game.load.spritesheet('ze', 'images/ze.png', 32, 32);
+    game.load.spritesheet('ze', 'images/ze.png', 64, 64);
 
 }
 
