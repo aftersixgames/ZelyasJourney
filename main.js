@@ -21,6 +21,7 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     this.gameSound = game.add.audio('zesound');
     this.gameSound.play();
+    this.gameSound.loopFull(1);
 
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
