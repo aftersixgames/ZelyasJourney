@@ -1,6 +1,4 @@
-var main = function(game){}
-// var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
+var tutorial = function(game){}
 
 var player;
 var platforms;
@@ -9,27 +7,26 @@ var zeJump;
 var zeSpeed;
 var gravidade;
 
-function create() {
-
-    //  We're going to be using physics, so enable the Arcade Physics system
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-    this.gameSound = game.add.audio('zesound');
+tutorial.prototype = {
+    create: function(){
+    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    this.gameSound = this.game.add.audio('zesound');
     this.gameSound.play();
     this.gameSound.loopFull(1);
 
     gravidade = 300;
 
     //  A simple background for our game
-    game.add.sprite(0, 0, 'sky');
+this.    game.add.sprite(0, 0, 'sky');
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
-    platforms = game.add.group();
+    platforms = this.game.add.group();
 
     //  We will enable physics for any object that is created in this group
     platforms.enableBody = true;
 
     // Here we create the ground.
-    var ground = platforms.create(0, game.world.height - 64, 'ground');
+    var ground = platforms.create(0, this.game.world.height - 64, 'ground');
 
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     ground.scale.setTo(2, 2);
@@ -45,10 +42,10 @@ function create() {
     ledge.body.immovable = true;
 
     // The player and its settings
-    player = game.add.sprite(32, game.world.height - 150, 'ze');
+    player = this.game.add.sprite(32, this.game.world.height - 150, 'ze');
 
     //  We need to enable physics on the player
-    game.physics.arcade.enable(player);
+    this.game.physics.arcade.enable(player);
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.body.bounce.y = 0.2;
@@ -59,16 +56,14 @@ function create() {
     player.animations.add('left', [0, 1, 2, 3], 10, true);
     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-    cursors = game.input.keyboard.createCursorKeys();
+    cursors = this.game.input.keyboard.createCursorKeys();
 
     zeJump = -150;
-
-}
-
-function update() {
+  },
+  update: function(){
 
     //  Collide the player and the stars with the platforms
-    game.physics.arcade.collide(player, platforms);
+    this.game.physics.arcade.collide(player, platforms);
 
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
@@ -103,4 +98,5 @@ function update() {
         player.body.velocity.y = -zeJump;
     }
 
+}
 }
