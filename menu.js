@@ -86,25 +86,25 @@ menu.prototype = {
       }
     }
     // else, let's shake the locked levels
-    // else{
-    //   var buttonTween = this.game.add.tween(button)
-    //   buttonTween.to({
-    //     x: button.x+thumbWidth/15
-    //   }, 20, Phaser.Easing.Cubic.None);
-    //   buttonTween.to({
-    //     x: button.x-thumbWidth/15
-    //   }, 20, Phaser.Easing.Cubic.None);
-    //   buttonTween.to({
-    //     x: button.x+thumbWidth/15
-    //   }, 20, Phaser.Easing.Cubic.None);
-    //   buttonTween.to({
-    //     x: button.x-thumbWidth/15
-    //   }, 20, Phaser.Easing.Cubic.None);
-    //   buttonTween.to({
-    //     x: button.x
-    //   }, 20, Phaser.Easing.Cubic.None);
-    //   buttonTween.start();
-    // }
+    else{
+      var buttonTween = this.game.add.tween(button)
+      buttonTween.to({
+        x: button.x+thumbWidth/15
+      }, 20, Phaser.Easing.Cubic.None);
+      buttonTween.to({
+        x: button.x-thumbWidth/15
+      }, 20, Phaser.Easing.Cubic.None);
+      buttonTween.to({
+        x: button.x+thumbWidth/15
+      }, 20, Phaser.Easing.Cubic.None);
+      buttonTween.to({
+        x: button.x-thumbWidth/15
+      }, 20, Phaser.Easing.Cubic.None);
+      buttonTween.to({
+        x: button.x
+      }, 20, Phaser.Easing.Cubic.None);
+      buttonTween.start();
+    }
   },
   arrowClicked: function(button){
     // touching right arrow and still not reached last page
