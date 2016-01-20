@@ -5,7 +5,7 @@ var platforms;
 var cursors;
 var zeJump;
 var zeSpeed;
-var gravidade;
+
 
 tutorial.prototype = {
     create: function(){
@@ -14,7 +14,6 @@ tutorial.prototype = {
     this.gameSound.play();
     this.gameSound.loopFull(1);
 
-    gravidade = 300;
 
     //  A simple background for our game
 this.    game.add.sprite(0, 0, 'sky');
@@ -59,6 +58,7 @@ this.    game.add.sprite(0, 0, 'sky');
     cursors = this.game.input.keyboard.createCursorKeys();
 
     zeJump = -150;
+    game.camera.follow(player);
   },
   update: function(){
 

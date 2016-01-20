@@ -14,6 +14,7 @@ var levelThumbsGroup;
 var currentPage = 0;
 var leftArrow;
 var rightArrow;
+var levelManager = {1: 'tile01'}
 
 menu.prototype = {
   preload: function(){
@@ -64,7 +65,7 @@ menu.prototype = {
               fill: "#ffffff"
             };
             var levelText = this.game.add.text(levelThumb.x+5,levelThumb.y+5,levelNumber+1,style);
-            levelText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 1);
+            // levelText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 1);
             levelThumbsGroup.add(levelText);
           }
         }
@@ -80,10 +81,9 @@ menu.prototype = {
   },
   thumbClicked: function(button){
     // the level is playable, then play the level!!
+    console.log(levelManager);
     if(button.frame < 4){
-      if (button.levelNumber == 1 ) {
-        this.game.state.start("tutorial");
-      }
+      this.game.state.start(levelManager[button.levelNumber]);
     }
     // else, let's shake the locked levels
     else{
