@@ -17,6 +17,7 @@ preload.prototype = {
     this.game.load.spritesheet('ze', 'images/ze.png', 64, 47);
     this.game.load.spritesheet('fredy', 'images/fredy.png', 70, 60);
     this.game.load.spritesheet('fredy_luva', 'images/freddy_luva.png', 58, 50);
+    this.game.load.spritesheet('furadeira', 'images/f01.png', 30, 14);
     this.game.load.audio('zesound', 'sounds/zelias_pesadelo.wav');
 
 	this.game.load.image("gametitle","images/zelyas.png");
